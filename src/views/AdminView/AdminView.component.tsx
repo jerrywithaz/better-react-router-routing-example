@@ -2,10 +2,18 @@ import React, { FunctionComponent } from "react";
 import { AdminViewProps } from "./AdminView.types";
 import useFocusOnMount from "../../hooks/useFocusOnMount";
 
-const AdminView: FunctionComponent<AdminViewProps> = () => {
+const AdminView: FunctionComponent<AdminViewProps> = ({ insufficientPermissions, insufficientRoles }) => {
 
   const h1Ref = useFocusOnMount<HTMLHeadingElement>();
   
+  if (insufficientRoles) {
+    return <div>Insufficient Roles</div>;
+  }
+
+  if (insufficientPermissions) {
+    return <div>Insufficient Permissions</div>;
+  }
+
   return (
     <React.Fragment>
       <div>

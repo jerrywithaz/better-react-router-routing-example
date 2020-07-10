@@ -56,19 +56,30 @@ const routes: RouteConfig[] = [
         },
         title: "JerryWithAZ - User",
         a11yMessage: "You have navigated to the User Page"
-      }
+      },
+      {
+        key: "route-admin-view",
+        secure: true,
+        path: "/home/database",
+        component: AdminView,
+        exact: true,
+        title: "JerryWithAZ - Database",
+        a11yMessage: "You have navigated to the Database Screen",
+        roles: ["Dev"]
+      },
+      {
+        key: "route-admin-view",
+        secure: true,
+        path: "/home/admin",
+        component: AdminView,
+        exact: true,
+        title: "JerryWithAZ - Admin",
+        a11yMessage: "You have navigated to the Admin Screen",
+        roles: ["Admin"],
+        useComponentAsFallback: true
+      },
     ]
-  },
-  {
-    key: "route-admin-view",
-    secure: true,
-    path: "/admin",
-    component: AdminView,
-    exact: true,
-    title: "JerryWithAZ - Admin",
-    a11yMessage: "You have navigated to the Admin Screen",
-    roles: ["Admin"]
-  },
+  }
 ];
 
 export default routes;
